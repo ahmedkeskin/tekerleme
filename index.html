@@ -1,0 +1,318 @@
+<html>
+  <head>
+  <title>tekerleme.club | Diksiyon Geliştirme</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <style type="text/css">
+    @import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900&subset=latin-ext');
+    .backx{
+	top: 0;
+	right: 0;
+	left: 0;
+	position:fixed;
+	z-index:-1;
+	width: 100%;
+	height: 100%;
+	background: url("back.jpg");
+	-webkit-background-origin: padding-box;
+	background-origin: padding-box;
+	-webkit-background-clip: border-box;
+	background-clip: border-box;
+	-webkit-background-size: auto auto;
+	background-size: auto auto;}
+
+    .aramaKutusu {
+	display: inline-block;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	width: 400px;
+	height: 20px;
+	right: 0;
+	padding: 5px;
+	border: 2px solid rgba(0,131,255,0.16);
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	font: 700 25px 'Roboto', sans-serif;
+	color: rgba(0,0,0,1);
+	-o-text-overflow: clip;
+	text-overflow: clip;
+	background: rgba(255,255,255,1);
+	-webkit-box-shadow: 0 0 10px 2px rgba(0,0,0,0.23) ;
+	box-shadow: 0 0 10px 2px rgba(0,0,0,0.23) ;
+	text-shadow: 1px 1px 0 rgba(255,255,255,0.66) ;
+	-webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+	-moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+	-o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+	transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    }
+
+    .aramaBasligi{
+	font: normal 700 15px 'Roboto', sans-serif;
+	letter-spacing: 0px;
+	padding: 5px;
+    }
+
+    
+    .govde{
+
+	background: url("back.jpg");
+	background-position: 50% 50%;
+	-webkit-background-origin: padding-box;
+	background-origin: padding-box;
+	-webkit-background-clip: border-box;
+	background-clip: border-box;
+	-webkit-background-size: auto auto;
+	background-size: auto auto;
+    }
+    .tekerleme {
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	width: 1024px;
+	position: relative;
+	margin: 40px auto;
+	padding: 20px;
+	overflow: hidden;
+	border: none;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	font: normal 25px/2 'Roboto', sans-serif;
+	letter-spacing: 0px;
+	color: rgba(0,0,0,1);
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	background: rgba(238,238,238,0.6);
+	-webkit-box-shadow: 1px 1px 4px 3px rgba(0,0,0,0.04) ;
+	box-shadow: 1px 1px 4px 3px rgba(0,0,0,0.04) ;
+    }
+    .baslik {
+	margin:0px;
+	padding:0px;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	border: none;
+	font: 900 30px 'Roboto', sans-serif;
+	color: black;
+	text-align: center;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+    }
+
+    .altBaslik{
+	margin:0px;
+	padding:0px;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	border: none;
+	font: normal 14px/3 'Roboto', sans-serif;
+	letter-spacing: 3px;
+	color: black;
+	text-align: center;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+    }
+
+    .ustBAR {
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	z-index: 10;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	padding: 10px 10px 35px;
+	overflow: hidden;
+	border: none;
+	color: rgba(255,255,255,1);
+	text-align: center;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	-webkit-box-shadow: 0 9px 14px 4px rgba(0,0,0,0.08) ;
+	box-shadow: 0 9px 14px 4px rgba(0,0,0,0.08) ;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;
+	
+	
+	background: url("back.jpg");
+	background-position: 50% 50%;
+	-webkit-background-origin: padding-box;
+	background-origin: padding-box;
+	-webkit-background-clip: border-box;
+	background-clip: border-box;
+	-webkit-background-size: auto auto;
+	background-size: auto auto;
+	
+	
+    }
+
+    .bosluk{
+	width: 100%;
+	height:250px;
+	position: relative;
+    }
+</style>
+<script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+ <script type="text/javascript">
+
+        function BuyukHarf(e) {
+          //nameOfFunction();
+		  var nesne = e.target ? e.target : e.srcElement;
+            var basilantus = e.charCode == undefined ? e.keyCode : e.charCode;
+            var str = String.fromCharCode(basilantus);
+            if ((basilantus < 97 || basilantus > 122) && !isTRChar(basilantus))
+                
+				return true;
+            if (basilantus == 105)
+                str = '\u0130';
+            if (nesne.createTextRange) {
+                e.keyCode = str.toUpperCase().charCodeAt(0);
+                
+				return true;
+            }
+            else {
+                var startpos = nesne.selectionStart;
+                var endpos = nesne.selectionEnd;
+                nesne.value = nesne.value.substr(0, startpos) + str.toUpperCase() + nesne.value.substr(endpos);
+                nesne.setSelectionRange(startpos + 1, startpos + 1);
+                
+				return false;
+				
+            }
+		
+        }
+
+        function isTRChar(key) {
+            var trchar = [231, 246, 252, 287, 305, 351];
+            for (var i = 0; i < trchar.length; i++) {
+                if (trchar[i] == key)
+                    return true;
+            }
+            return false;
+        }
+
+        function BuyukHarfBlur(e, clear) {
+            var nesne = e.target ? e.target : e.srcElement;
+            var val = nesne.value;
+            val = val.replace(/i/g, "\u0130").replace(/^\s+|\s+$/g, "");
+            if (clear) val = val.replace(/\s{2,}/g, " ");
+            nesne.value = val.toUpperCase();
+		//nameOfFunction();	
+        }
+        // --> End BuyukHarf()
+    </script>
+<script type="text/javascript">
+function nameOfFunction() {
+    $('.tekerleme').hide();
+    var txt = $('#txtInput').val();
+    $('.tekerleme').each(function(){
+       if($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1){
+           $(this).show();
+       }
+    });
+//});
+
+//});
+
+}
+
+
+    
+ </script>
+</head>
+<div class="backx"></div>
+<div class="ustBAR">
+<div class="altBaslik">.</div>
+<div class="baslik">TEKERLEMELER</div>
+<div class="altBaslik">DİKSİYONUNUZU GELİŞTİRMEK İÇİN OKUYABİLECEĞİNİZ TEKERLEMELER.</div>
+
+<div class="altBaslik">
+<div class="aramaBasligi">ARAMA</div>
+<input class="aramaKutusu" type="text" id="txtInput" onkeypress="return BuyukHarf(event);" onkeyup="nameOfFunction();" onblur="BuyukHarfBlur(event,true)" />
+</div>
+</div>
+<body>
+
+<div class="bosluk"></div>
+<div id="1" class="tekerleme">A BE KURU DAYI, NE KURU SARI DARI BU DARI, A BE KURU DAYI!</div>
+<div id="2" class="tekerleme">ADEME ADEM GEREKİR, ADEM ANLAR ADEMİ, ADEM ADEM OLMAYINCA NİTSİN ADEM ADEMİ.</div>
+<div id="3" class="tekerleme">AL BU TAKATUKALARI TAKATUKACIYA TAKATUKALATMAYA GÖTÜR. TAKATUKACI TAKATUKALARI TAKATUKALAMAM DERSE TAKATUKACIDAN TAKATUKALARI TAKATUKALATMADAN AL DA GEL.</div>
+<div id="4" class="tekerleme">ALEM ALA DANA ALDI ALA DANALANDI DA BİZ BİR ALA DANA ALIP ALA DANALANAMADIK.</div>
+<div id="5" class="tekerleme">BABAESKİLİ BABACAN BAHRİ BEBERUHİ BEDRİ İLE, BIYIKSIZ BIÇKICI BINGILDAK BİGALI BİKEZ BİHER’İN BİGADİÇTEKİ BONBON BONBARŞESİNE VARMIŞLAR, ORADAKİLERİN YÜZLERİNE BÖN BÖN BAKARAK, BÜYÜLÜ BÜYÜK BUHURDANLIĞI, BUĞULU BUĞULU BOŞALTIP BOMBOŞ BIRAKMIŞLAR, SONRA DA BODRUMDA GÖZDEN KAYBOLMUŞLAR.</div>
+<div id="6" class="tekerleme">BALDIRAN DALLARI BALLANDIRILMALI MI, BALLANDIRILMAMALI MI? SONRA O BALA DALDIRILAN BALDIRAN DALLARI DALLANDIRILMALI MI, BALLI DALLA DALLANDIRILMAMALI MI?</div>
+<div id="7" class="tekerleme">BATI TEPEDE TAHTA DEPO DİBİNDE BEYTUFET EDEN PUTLU DEDE TEKKESİNDEN MATRUT BİTLİ VEDAT, DAR DEREDE TATLI DUTTAN DÜRÜLÜ PİDE YUTUP PÖSTEKİ DİDE DİDE DÖRT AYDA DÖRT TÜRLÜ DERDE TUTULDU.</div>
+<div id="8" class="tekerleme">BE BİRADER, BURAYA BAK, BAŞI BERELİ, BURMA BIYIKLI, BASTIBACAK, BAYAN BERBERİ İLE BİZİM BEDRİ BEY BURSA PAZARINA İNDİLER.</div>
+<div id="9" class="tekerleme">BİLMEYENLER, BİLMEDİKLERİNİ, BİLSELERDİ, BİLİRLERDİ.</div>
+<div id="10" class="tekerleme">BİR BERBER BİR BERBERE, BRE BERBER GEL BERABER BİR BERBER DÜKKÂNI AÇALIM DEMİŞ.</div>
+<div id="11" class="tekerleme">BİR TARLAYA KEMEKEN EKMİŞLER. İKİ KÜRKÜ YIRTIK KEL KÖR KİRLİ KİRPİ DADANMIŞ. BİRİ ERKEK, ÖTEKİ DİŞİ KÜRKÜ YIRTIK KEL KÖR KİRLİ KİRPİ. KÜRKÜ YIRTIK ERKEK KEL KÖR KİRLİ KİRPİNİN YIRTIK KÜRKÜNÜ KÜRKÜ YIRTIK DİŞİ KEL KÖR KİRLİ KİRPİNİN YIRTIK KÜRKÜNE; KÜRKÜ YIRTIK DİŞİ KEL KÖR KİRLİ KİRPİNİN YIRTIK KÜRKÜNÜ KÜRKÜ YIRTIK ERKEK KEL KÖR KİRLİ KİRPİNİN YIRTIK KÜRKÜNE EKLEMİŞLER.</div>
+<div id="12" class="tekerleme">BU ÇORBAYI NANELEMELİ Mİ DE YEMELİ, NANELEMEMELİ Mİ DE YEMELİ?</div>
+<div id="13" class="tekerleme">BU DUVARI BADANALAMALI MI, BADANALAMAMALI MI?</div>
+<div id="14" class="tekerleme">BU EKŞİ ESKİ EKŞİ.</div>
+<div id="15" class="tekerleme">BU KÖŞE YAZ KÖŞESİ, ŞU KÖŞE KIŞ KÖŞESİ, ORTADAKİ SU ŞİŞESİ.</div>
+<div id="16" class="tekerleme">BU MUMCUNUN MUMU UMUMUMUZUN MUMUDUR.</div>
+<div id="17" class="tekerleme">BU PİKAP, ŞU PİKAP, O PİKAP.</div>
+<div id="18" class="tekerleme">BU TARLAYA BİR ŞİNİK, KEKERE MEKERE EKMİŞLER. BU TARLAYA DA BİR ŞİNİK KEKERE MEKERE EKMİŞLER.BU TARLAYA EKİLEN BİR ŞİNİK KEKERE MEKEREYE BOZ ALA BOZ BAŞLI PİS PORSUK DADANMIŞ. BU TARLAYA EKİLEN BİR ŞİNİK KEKERE MEKEREYE DE BOZ ALA BOZ BAŞLI PİS PORSUK DADANMIŞ. O TARLAYA EKİLEN BİR ŞİNİK KEKERE MEKEREYE DADANAN BOZ ALA BOZ BAŞLI PİS PORSUK, DİĞER TARLAYA EKİLEN BİR ŞİNİK KEKERE MEKEREYE DADANAN BOZ ALA BOZ BAŞLI PİS PORSUK'A DEMİŞ Kİ, SEN NE ZAMANDAN BERİ BU TARLAYA EKİLEN BİR ŞİNİK KEKERE MEKEREYE DADANAN BOZ ALA BOZ BAŞLI PİS PORSUKSUN? O DA ONA CEVABEN, SEN NE ZAMAN O TARLAYA EKİLEN BİR ŞİNİK KEKERE MEKEREYE DADANAN BOZ ALA BOZ BAŞLI PİS PORSUKSAN, BEN DE O ZAMANDAN BERİ BU TARLAYA EKİLEN BİR ŞİNİK KEKERE MEKEREYE DADANAN BOZ ALA BOZ BAŞLI PİS PORSUĞUM DEMİŞ.</div>
+<div id="19" class="tekerleme">BU YOĞURDU MAYALAMALI DA MI SAKLAMALI, MAYALAMAMALI DA MI SAKLAMALI?</div>
+<div id="20" class="tekerleme">BU YOĞURDU SARIMSAKLASAK DA MI SAKLASAK, SARIMSAKLAMASAK DA MI SAKLASAK?</div>
+<div id="21" class="tekerleme">CAHİT HALEP’E GİDECEKTİ, BİR DESTE KAŞIK ALACAKTI, UCUNU ALACALATACAKTI. BİLMEM ALDI ALACALATTI, BİLMEM ALDI ALACALATACAK.</div>
+<div id="22" class="tekerleme">CEMİL, CEMİLE, CEMAL CUMALARI CİLACI CÜCE CANİP’İN CİCİLİ BİCİLİ CUMBALI CİLTEVİNDE CÜMBÜR CEMAAT CACIKLI CİVCİVLE CÜCÜKLÜ CACIK YERLER, SONRA DA CEBECİLİ CİNGÖZ COĞRAFYACININ CİNCİ CİCİANNESİNİN CIRCIRBÖCEĞİNİ DİNLERLER.</div>
+<div id="23" class="tekerleme">CİNLERİN CİVCİVLERİ ÇIN ÇIN SESSİZLİKTEN ÇIKIP ÇİNİLİ KÖŞKÜN CAMLARINDA CİKCİKLEDİLER.</div>
+<div id="24" class="tekerleme">ÇAPAKÇURLU ÇİPİL ÇATAL’IN ÇAR ÇUR ETTİĞİ ÇİL ÇİL LİRALARI ÇÖPÇATAN ÇAKMAKÇININ ÇİVİTÇİ KIZI İÇ ETMİŞ.</div>
+<div id="25" class="tekerleme">ÇATALCA'DA TOPAL ÇOBAN ÇATAL YAPAR ÇATAL SATAR, NESİ İÇİN ÇATALCA'DA TOPAL ÇOBAN ÇATAL YAPAR ÇATAL SATAR, KÂRI İÇİN ÇATALCA'DA TOPAL ÇOBAN ÇATAL YAPAR ÇATAL SATAR.</div>
+<div id="26" class="tekerleme">DADAŞI CADDEDE DURDURDUMDA, DEDİM Kİ, ŞU DÜNYADA DELİŞMEN DELİLERLE DERTLİ DEDELER İÇİN DİDİNDİN DURDUN.</div>
+<div id="27" class="tekerleme">DADAYLI DAYIMIN DODURGALI DÜDÜK DEDESİ DİLİNE DOLADIĞI DEBDEBELİ DEDİM DEDİSİYLE DIRDIRINI DİLİNDEN DÜŞÜRÜP DE, BİR KEZ OLSUN DOYA DOYA DÜDEN DİYEMEDEN DALLARA DOLDURDUĞU DOYUMLUK YEMİŞLERDEN DOYASIYA YİYEMEDEN DÂRI DÜNYADAN GÖÇÜP GİTTİ.</div>
+<div id="28" class="tekerleme">DAĞ DAĞI SAĞLAR, BAĞ BAĞI BAĞLAR, YAĞ YAĞI YAĞLAR, SOĞAN SOĞANA AĞLAR.</div>
+<div id="29" class="tekerleme">DEĞİRMENE GİRDİ KÖPEK, DEĞİRMENCİ VURDU KÖTEK; HEM KÖTEK YEDİ KÖPEK, HEM KEPEK YEDİ KÖPEK.</div>
+<div id="30" class="tekerleme">DOĞAN DOĞANDAN TATLI, DOĞACAK OLAN ONDAN DA TATLI, ONDAN DOĞACAK OLAN HEPSİNDEN DAHA TATLI.</div>
+<div id="31" class="tekerleme">DÖRT DERYANIN DERESİNİ DÖRT DERGAHIN DERBENDİNE DEVREDERLERSE, DÖRT DERYADAN DÖRT DERT, DÖRT DERGAHTAN DÖRT DEV ÇIKAR.</div>
+<div id="32" class="tekerleme">DÜŞKÜN DÜŞÜNDEŞ DÜŞÜNSELDE DÜŞÇÜ DÜŞÜNSELLİKLE DÜŞÜNCELEME DÜŞSELLİĞİNİ DÜŞÜNDEN DÜŞÜREMEZ. DÜŞÜRÜRSE EĞER DÜŞÜNCELİK DÜŞÜNCESİZLİKLE DÜŞÜNDÜRÜCÜ BİR DÜŞÜNSELLİK KAZANIR.</div>
+<div id="33" class="tekerleme">EDREMİTLİ ELÂ GÖZLÜ ESMER EYLÜL’DE EL ALTINDAN ELMACI EFE’NİN EŞİ EŞREFLE EMANETÇİNİN EŞEĞİNE BİNDİLER.</div>
+<div id="34" class="tekerleme">ELLER BAZLAMALANDI DA, BİZ BAZLAMALANAMADIK.</div>
+<div id="35" class="tekerleme">FELEMENKTE FELEMENKLERİN FELEMENKÇE Mİ KONUŞTUKLARINI DÜŞÜNE DÜŞÜNE FERTLİĞİ ÇEKTİLER.</div>
+<div id="36" class="tekerleme">FERACELİ FETHİYE FENERYOLUNDA FENERLİ FERHATI GÖRÜNCE FERYAT FİGAN FENALAŞTI.</div>
+<div id="37" class="tekerleme">FERMANLI FABRİKATÖR FARMASON FUAT FİLDEN, FİİLDEN, FISILTIDAN, FOSİLDEN FÜLÜTTEN, FİLİTTEN, FLÖRTTEN, FÖTRDEN FELLİK FELLİK KAÇAR.</div>
+<div id="38" class="tekerleme">GECE PENCEREDEKİ BENEKLİ TEKİR KEDİ KENDİ TENCERESİNDEKİ ETİ YEDİ.</div>
+<div id="39" class="tekerleme">GEÇEN GECE GEMEREK’TEN GEDİZ’E GELEN GEBZELİ GEZGİNCİ GİZEMCİLERDEN, GENERAL GENZEL, GİTARİST GENÇLERE GERÇEK DIŞILIKLA GERÇEKLİK DIŞI İLİŞKİLER ARASINDA NE GİBİ BİR GERÇEKLİK OLDUĞUNU SORDU.</div>
+<div id="40" class="tekerleme">GÖRDÜĞÜNÜ GÖZÜN İLE, SÖYLEMESEN SÖZÜN İLE, ANDAN SONRA BİZİM İLE, OL SEN DE MİHMAN DEDİLER.</div>
+<div id="41" class="tekerleme">GÜL DİBİ BÜLBÜL DİLİ GİBİ, GÜL DİBİ BÜLBÜL DİLİ</div>
+<div id="42" class="tekerleme">GÜNEYLİ GAMMAZ GALİP GÂVUR DAĞINDA GÜPE GÜNDÜZ GALEYANA GELMİŞ DE GÜLGİLLİOĞLU GAZİANTEPLİ GAZUP GAZİNOCU GAFFURU GİTARCIYLA BİRLİKTE GÜMÜŞHANEYE GÖNDERMİŞ.</div>
+<div id="43" class="tekerleme">HABEŞLİ HABİBE HEMŞİRE HIRKALI HİZMETÇİ HOPPA HÖDÜK HURİYEYE HABEŞTEN GELEN HURMALARI HÜRMETLE SUNDU.</div>
+<div id="44" class="tekerleme">HÂKİME HAKEM, HAKEME HÂKİM GEREK.</div>
+<div id="45" class="tekerleme">HOROSANLI HOPPA HOCA HOKKABAZ HOYRAT HOZATLI HASANIN HOTOZUNA HOŞAFI HOYRATLIKLA DÖKTÜ.</div>
+<div id="46" class="tekerleme">IĞDIR’IN IĞIL IĞIL AKAN ILIMAN IRMAKLARININ KIYILARINDA TIKLIM TIKLIM ILGIN KAPLIDIR.</div>
+<div id="47" class="tekerleme">İBİBİKLERİN İBİBİKLERİNİ İYİCE İYİLEŞTİRMEK İÇİN İSTİNYELİ İSTİFÇİ İBİŞ’İN İSTİF İSTİRİDYELERİ Mİ, YOKSA, İSKİLİPLİ İSPİNOZ İŞPORTACI İSHAK’IN İŞLİĞİNDEKİ İBRİŞİMLER Mİ DAHA İYİ, BİLEMİYORUM.</div>
+<div id="48" class="tekerleme">İBİŞ’LE MEMİŞ MAHKEMEYE GİTMİŞ, MAHKEMELEŞMİŞ Mİ, MAHKEMELEŞMEMİŞ Mİ?</div>
+<div id="49" class="tekerleme">JURNÂLCİ JALE İLE JENARATÖR MÜJGÂN, JAPONYA’DAN JİLET, JANT, JET, JAMBON, JELATİN, JARTİYER, JETON, JARSE, JAPONGÜLÜ GETİRDİLER.</div>
+<div id="50" class="tekerleme">KÂNİ’NİN KAFASI KÂBİL’İ KABİL DEĞİL KABÛL ETMEZ.</div>
+<div id="51" class="tekerleme">KARA KARA KARTALLAR, KÂRLI İYİ TARLALAR ARARLAR.</div>
+<div id="52" class="tekerleme">KARA KAZIN KISA KAYIŞINI KASIŞINA KIZMAYIŞINA ŞAŞMIŞSIN DA, KURU KAZIN KAZIŞIP KAYIŞI KAZISINA ŞAŞMIŞ KALMIŞSIN.</div>
+<div id="53" class="tekerleme">KARABURUNLU KABADAYI KADİR, KAFAKÂĞIDINI KADİRLİLİ KADİR BİLMEZ KAPKAÇÇI KASIM’LA, KAHİRE’DEKİ KALECİKLİLER KAHVEHANESİNDE KALAMARLA KAFURU SATAN KAPAROZCU KUZGUNCUKLU KOZMONOT KÂZIM’A KAPTIRMIŞ.</div>
+<div id="54" class="tekerleme">KIRIKHAN’DAKİ KIRIKÇI KIRÇIL KIVANÇ’IN KIRGIN KIRIKÇISI, KIRMIZI KIRDA KIKIR KIKIR KIKIRDAYARAK KIRIMLI KIKIRDAKÇININ KIZIL KIRLANGIÇLARINI BESLİYORMUŞ.</div>
+<div id="55" class="tekerleme">KİKİRİK KUŞÇUBAŞININ KİLİMCİ KİRLOZU KUŞBAZ KURUT KUŞADASI’NA KUKUMAV KUŞU GÖTÜRÜP KİŞİLİKSİZ KUSKUSLUYA VERMİŞ.</div>
+<div id="56" class="tekerleme">MARMARA’DAKİ KARMARİŞLİ MERMERCİLER MERMERCİLİĞİ MESLEK EDİNMİŞLER, AMA MAMAK’TAKİ MAMACILAR MANYETİZMACILIKLA MARMELATÇILIĞI MESLEK EDİNEMEMİŞLER.</div>
+<div id="57" class="tekerleme">MEHMET’İN MERCAN TESBİHİNİ İMAMELEMELİ Mİ, İMAMELEMEMELİ Mİ?</div>
+<div id="58" class="tekerleme">NAMLI NALLIHANLI NESRİN’İN NALINLARINI NAZİKÂNE NERGİS SATAN NÖBETŞEKERİ ALAN NEZAKET’E VERMESİNE NE DERSİN?</div>
+<div id="59" class="tekerleme">NARGİLELİ NURİ, NAMECİ NİLÜFER’E NARGİLESİNDEN NE NAMELER DİNLETMİŞ.</div>
+<div id="60" class="tekerleme">OCAK KIVILCIMLANDIRICILARINDAN MISINIZ? YOKSA KAPI GICIRDATICILARINDAN MISINIZ? NE OCAK KIVILCIMLANDIRICILARINDANIZ. NE DE KAPI GICIRDATICILARINDANIZ.</div>
+<div id="61" class="tekerleme">SAZENDE ŞAZİ İLE ZİFOS ZİHNİ ZAMAN ZAMAN SİZİN SOKAĞIN SAĞ KÖŞESİNDE SİNSİ SİNSİ FİSKOSLAŞARAK SİZİ ZİBİDİ SUZİ’YE SONSUZ VE SORUMSUZ BİR HAYASIZLIKLA İKİDE BİR ŞİKAYET EDERLER.</div>
+<div id="62" class="tekerleme">SEN SENİ BİL, SEN SENİ, BİL SEN SENİ SEN, SENİ BİL, SEN SENİ, BİLMEZSEN SEN SENİ, PATLATIRLAR ENSENİ.</div>
+<div id="63" class="tekerleme">SİZİN DAMDA VAR BEŞ BOZ BAŞLI BEŞ BOZ ÖRDEK, BİZİM DAMDA VAR BEŞ BOZ BAŞLI BEŞ BOZ ÖRDEK. SİZİN DAMDAKİ BEŞ BOZ BAŞLI BEŞ BOZ ÖRDEK; BİZİM DAMDAKİ BEŞ BOZ BAŞLI BEŞ BOZ ÖRDEĞE: "SİZ DE BİZİM GİBİ BEŞ BOZ BAŞLI BEŞ BOZ ÖRDEKSİNİZ." DEMİŞ.</div>
+<div id="64" class="tekerleme">ŞEMSİ PAŞA PASAJINDA SESİ BÜZÜŞESİCELER.</div>
+<div id="65" class="tekerleme">ŞİŞ, ŞİŞEYİ ŞİŞLEMİŞ; ŞİŞE KEŞİŞE KİŞ DEMİŞ.</div>
+<div id="66" class="tekerleme">ŞU DAĞDA BEŞ BOŞ EŞEK, BEŞİ DE BEZ YÜKLÜ BESİLİ BEŞ BOZ EŞEK.</div>
+<div id="67" class="tekerleme">ŞU KARŞIDA BİR DAL, DALDA BİR KARTAL; DAL SARKAR, KARTAL KALKAR; KARTAL KALKAR, DAL SARKAR. DAL KALKAR, KARTAL SARKAR, KANTAR TARTAR.</div>
+<div id="68" class="tekerleme">ŞU KARŞIDA KARA KURU KAVAK, KARARDIN MI EY KARA KURU KAVAK, SARARDIN MI EY KARA KURU KAVAK!</div>
+<div id="69" class="tekerleme">TAA ORADA BİR AĞAÇ VAR SAPSARI MEYVELER GÖVERİR, ÖTEDE YEŞİL DEFNELER BÜYÜR, YEŞERİR.</div>
+<div id="70" class="tekerleme">TEMİZ, TİTİZ, DADIM, TADINI, TATTIĞI, TERE DEMETİNİ, DİDE, DİDE DAĞITTIDA HIRSINDAN DUT DALINA TAKILI DURAN DÜDÜĞÜ ÖTTÜRDÜ.</div>
+<div id="71" class="tekerleme">TOKMAKÇI TOKMAĞINI TOKMAKLATTIRIYOR MU? TOKMAKLATTIRAMAYIP TOPUZCUDAN TOPUZ YİYOR MU?</div>
+<div id="72" class="tekerleme">ÜÇ TUNÇ TAS KAYISI HOŞAFI. ÜÇ TUNÇ TAS HAS KAYISI HOŞAFI. PAŞA TASI İLE BEŞ HAS TAS KAYISI HOŞAFI.</div>
+<div id="73" class="tekerleme">ÜRDÜNLÜ ÜNLÜ ÜFÜRÜKÇÜ ÜRYANİ, ÜNYE, ÜRGÜP ÜZERİNDEN ÜLKÜDEŞLERİNE, ÜSTÜPÜ, ÜSTÜBEZ, ÜVEZ, ÜZÜM, ÜZENGİTAŞI VE ÜZÜNÇ GÖTÜRÜRKEN, ÜVEYİK’TEN ÜRÜYEREK, ÜVENDİRLERİNİ SÜRÜYEREK YÜRÜYEN ÜÇKAĞITÇILARIN ÜRKÜNTÜ ÜRETEN ÜNÜ BATASICA ÜNLEMLERİYLE ÜRKÜVERDİ…</div>
+<div id="74" class="tekerleme">VIDIVIDICI VE VIRVIRCI VANLI VELİ’NİN VEFALI VATANDAŞI VAHİT VATANSEVERİNE VEDA EDİP VİLAYETTE VOLA VURA VURA, VAYVAYCI VİCDANİ VE VİRANKÖYLÜ VAHAP’LA KARŞILAŞTI.</div>
+<div id="75" class="tekerleme">YALANCIOĞLU YALINCIK YAYLA DAĞI’NIN YAHNİSİNİ YAĞSIZ YİYEBİLİRSE DE YAYLA DAĞI’NIN YAĞLI YOĞURDUNDAN, YÜKSEKOVA’NIN YUSYUMRU YUMURTA YUMURTLAYAN TAVUKLARINDAN, BİR DE YÖRÜK AYRANIYLA YUFKASINDAN ASLA VAZGEÇEMEZ.</div>
+<div id="76" class="tekerleme">YAN YANA, YANA YANA, KAN KANA, KANA KANA, BANA TAN AĞARDI, CAN DAĞALDI, YOL GÖRÜNDÜ SANA.</div>
+<div id="77" class="tekerleme">ZERZEVATÇININ SEPETİNİ SISKA SÜLÜK, TATSIZ, TUZSUZ, SERT SIRTLI BİRİ ZİGZAGLAR ÇİZEN TAZI GİBİ TAŞIYORDU.</div>
+</body>
+
+</html>
